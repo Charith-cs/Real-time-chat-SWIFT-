@@ -20,7 +20,12 @@ mongoose.connect(process.env.MONGO_URL , console.log("Connected to MongoDB"));
 app.use("/images" , express.static(path.join(__dirname , "public/images")));
 
 //middlware
-app.use(cors());
+app.use(cors({
+    origin: ["https://real-time-chat-swift-front.vercel.app"],
+    methods: ["POST", "GET", "OPTIONS"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
