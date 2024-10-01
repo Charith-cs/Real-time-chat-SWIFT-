@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8800',
+        target: 'https://real-time-chat-swift-back.vercel.app',
         changeOrigin: true,
       },
     },
