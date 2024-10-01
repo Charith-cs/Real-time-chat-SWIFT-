@@ -24,7 +24,7 @@ app.use(cors({
     origin: ["https://real-time-chat-swift-front.vercel.app"],
     methods: ["POST", "GET", "OPTIONS"],
     credentials: true,
-    allowedHeaders: ["Content-Type", "application/json"]
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 app.use(express.json());
 app.use(helmet());
