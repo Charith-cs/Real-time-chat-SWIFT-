@@ -22,11 +22,14 @@ app.use("/images" , express.static(path.join(__dirname , "public/images")));
 //middlware
 app.use(cors({
   origin: "https://real-time-chat-swift-front.vercel.app", 
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],   
-  credentials: true,                                       
-  allowedHeaders: ["Content-Type", "Authorization"],        
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
-app.options('*', cors());
+
+app.options('*', cors(), (req, res) => {
+  res.sendStatus(200);  
+});
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
